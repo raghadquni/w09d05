@@ -1,6 +1,8 @@
 import React , { useState, useEffect } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
+
+
 
 const Register = () => {
   const navigate = useNavigate();
@@ -16,7 +18,7 @@ const Register = () => {
 
   const register = async () => {
     try {
-      const users = await axios.post(`${process.env.REACT_APP_BASE_URL}/signup` , {
+      const users = await axios.post(`${process.env.REACT_APP_BASE_URL}/users/signup` , {
       userNme,
       email,
       password,
@@ -67,7 +69,7 @@ const login = () => {
         className="btn btn-primary"
         onClick={register}
       />
-      <p onClick={login}>Already have an account?</p>
+      <p onClick={login}>Already have an account? Click <Link to="/Login"> HERE </Link></p>
     </div>
   );
 };
